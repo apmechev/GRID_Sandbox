@@ -12,6 +12,7 @@ singularity exec ${SIMG} which genericpipeline.py
 echo ${PARSET}
 cat sing_pipeline.cfg
 export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
+cat ${PWD}/${PARSET}
 singularity exec ${SIMG} genericpipeline.py ${PWD}/${PARSET} -d -c sing_pipeline.cfg  > output
 }
 
