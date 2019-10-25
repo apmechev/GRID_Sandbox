@@ -71,7 +71,7 @@ function dl_cal2(){
 # This function is specific to the temp files created by pref_cal1 
 #   sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -st 30 {} $PWD/Input/ || { echo 'downloading failed' ; exit 21; }
    cd ${RUNDIR}/Input
-   globus-url-copy gsiftp://gridftp.grid.sara.nl:2811/pnfs/grid.sara.nl/data/lofar/user/sksp/pipelines/SKSP/pref_cal1/${OBSID}/* ./  || { echo 'downloading failed' ; exit 21;  }
+   globus-url-copy gsiftp://gridftp.grid.sara.nl:2811/pnfs/grid.sara.nl/data/lofar/user/sksp/diskonly/pipelines/SKSP/prefactor_v1.0/pref_cal1/${OBSID}/* ./  || { echo 'downloading failed' ; exit 21;  }
 
    for i in `ls *tar`; do tar -xf $i &&rm $i; done
    find . -name "${OBSID}*ndppp_prep_cal" -exec mv {} ${RUNDIR}/Input/ \;   

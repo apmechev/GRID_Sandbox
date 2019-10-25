@@ -23,6 +23,6 @@ function replace_dirs(){
   else
    pipelinetype="pref.cal"
  fi
-
+ sed -i "s?sortmap_target.argument.firstSB.*=.*?sortmap_target.argument.firstSB            = ${STARTSB}?g" ${PARSET}
  sed -i "s?reference_stationSB.*=.*?reference_stationSB            = ${STARTSB}?g" ${PARSET}
 }
