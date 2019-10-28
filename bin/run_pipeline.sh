@@ -13,7 +13,7 @@ echo ${PARSET}
 cat sing_pipeline.cfg
 export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
 cat ${RUNDIR}/${PARSET}
-singularity exec ${SIMG} genericpipeline.py ${RUNDIR}/${PARSET} -d -c sing_pipeline.cfg  > output
+singularity exec ${SIMG} genericpipeline.py ${RUNDIR}/${PARSET} -d -c sing_pipeline.cfg  > output 2>&1
 }
 
 function run_pipeline(){
