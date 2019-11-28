@@ -48,7 +48,7 @@ function dl_generic(){
    fi
 
    if [[ ! -z $( cat $1 | grep sara )  ]]; then
-     sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $PWD/Input/ 2>&1|| { echo 'downloading failed' ; exit 21; }
+     sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -vb {} $PWD/Input/ 2>&1|| { echo 'downloading failed' ; exit 21; }
    fi
 
    if [[ ! -z $( cat $1 | grep psnc )  ]]; then
