@@ -82,7 +82,8 @@ function dl_cal1(){
    fi
 
    if [[ ! -z $( cat $1 | grep -E "juelich|sara|psnc") ]] ; then
-     globus-url-copy -rst -rst-timeout 1200 -st 30 -v $1 $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+     echo "File is not in an LTA site, still attempting download."
+     globus-url-copy -rst -rst-timeout 1200 -st 30 -v $(cat $1) $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
    fi
 
    wait
