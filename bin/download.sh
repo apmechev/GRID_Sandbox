@@ -76,7 +76,7 @@ function dl_cal1(){
     sed 's?srm://lta-head.lofar.psnc.pl:8443?gsiftp://gridftp.lofar.psnc.pl:2811?g' $1 | xargs -I{} globus-url-copy  -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
    else
     echo "File is not in an LTA site, still attempting download."
-    globus-url-copy -rst -rst-timeout 1200 -st 30 -v $(cat $1) $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+    cat $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
    fi
    wait
    OLD_P=$PWD
