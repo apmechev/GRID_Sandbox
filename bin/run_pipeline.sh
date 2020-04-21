@@ -12,7 +12,7 @@ singularity exec ${SIMG} which genericpipeline.py
 echo ${PARSET}
 cat sing_pipeline.cfg
 export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
-singularity exec -B $RUNDIR,/project ${SIMG} genericpipeline.py ${PWD}/${PARSET} -d -c sing_pipeline.cfg  | tee output
+singularity exec -B $RUNDIR,/project ${SIMG} genericpipeline.py ${PWD}/${PARSET} -d -c sing_pipeline.cfg > output
 }
 
 function run_pipeline(){
@@ -34,7 +34,7 @@ else
     which genericpipeline.py
     echo ${PARSET}
     cat pipeline.cfg
-    genericpipeline.py ${PWD}/${PARSET} -d -c pipeline.cfg | tee output
+    genericpipeline.py ${PWD}/${PARSET} -d -c pipeline.cfg > output
 fi
 
 python ${JOBDIR}/GRID_PiCaS_Launcher/update_token_status.py ${PICAS_DB} ${PICAS_USR} ${PICAS_USR_PWD} ${TOKEN} 'pipeline_completed'
