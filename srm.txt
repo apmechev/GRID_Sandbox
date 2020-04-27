@@ -1,0 +1,10 @@
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN124.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN125.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN126.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN127.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN128.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN129.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN130.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN131.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN132.tar
+/project/sksp/Data/ELAIS_L686962/prefactor/targ1/pref3_targ1_L686962_ABN133.tar

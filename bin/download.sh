@@ -103,6 +103,7 @@ function dl_cal2(){
 }
 
 function dl_targ2(){
+   cd $RUNDIR/Input
    if [[ ! -z $( cat $1 | grep juelich )  ]]; then 
     sed 's?srm://lofar-srm.fz-juelich.de:8443?gsiftp://lofar-gridftp.fz-juelich.de:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
    elif [[ ! -z $( cat $1 | grep sara )  ]]; then
