@@ -103,9 +103,9 @@ function dl_cal2(){
 }
 
 function dl_targ2(){
-   cp $1 ${RUNDIR}/Input
-   cd ${RUNDIR}/Input
-   sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -st 30 -v {} ${RUNDIR}/Input/ || { echo 'downloading failed' ; exit 21;  }
+   #cp $1 ${RUNDIR}/Input
+   #cd ${RUNDIR}/Input
+   sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21;  }
    ls 
    for i in `ls *tar`; do tar -xf $i  && rm -rf $i; done
    find . -type d -name "*.pre-cal.ms" -exec mv {} ./ \;
