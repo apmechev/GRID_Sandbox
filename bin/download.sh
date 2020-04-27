@@ -103,9 +103,16 @@ function dl_cal2(){
 }
 
 function dl_targ2(){
-   #cp $1 ${RUNDIR}/Input
-   #cd ${RUNDIR}/Input
-   sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21;  }
+   if [[ ! -z $( cat $1 | grep juelich )  ]]; then 
+    sed 's?srm://lofar-srm.fz-juelich.de:8443?gsiftp://lofar-gridftp.fz-juelich.de:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+   elif [[ ! -z $( cat $1 | grep sara )  ]]; then
+    sed 's?srm://srm.grid.sara.nl:8443?gsiftp://gridftp.grid.sara.nl:2811?g' $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+   elif [[ ! -z $( cat $1 | grep psnc )  ]]; then
+    sed 's?srm://lta-head.lofar.psnc.pl:8443?gsiftp://gridftp.lofar.psnc.pl:2811?g' $1 | xargs -I{} globus-url-copy  -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+   else
+    echo "File is not in an LTA site, still attempting download."
+    cat $1 | xargs -I{} globus-url-copy -rst -rst-timeout 1200 -st 30 -v {} $RUNDIR/Input/ || { echo 'downloading failed' ; exit 21; }
+   fi
    ls 
    for i in `ls *tar`; do tar -xf $i  && rm -rf $i; done
    find . -type d -name "*.pre-cal.ms" -exec mv {} ./ \;
