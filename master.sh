@@ -113,6 +113,17 @@ git log --graph --decorate |head  -24
 echo "+++++++++++++"
 echo "+++++++++++++"
 
+cd -
+
+cd $PWD/lofar-vlbi
+echo "+++++++++++++"
+echo "++lofarvlbi++"
+echo "+++version+++"
+
+git log --graph --decorate |head  -24
+echo "+++++++++++++"
+echo "+++++++++++++"
+
 cd $RUNDIR
 rm -rf ${RUNDIR}/Input/inspection/*
 rm -rf ${JOBDIR}/prefactor/docs/*
