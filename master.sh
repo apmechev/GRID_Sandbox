@@ -112,9 +112,9 @@ echo "+++version+++"
 git log --graph --decorate |head  -24
 echo "+++++++++++++"
 echo "+++++++++++++"
-
-cd $JOBDIR/lofar-vlbi
-echo "Contents of $JOBDIR/lofar-vlbi:"
+echo "Current directory is $PWD"
+cd $RUNDIR/lofar-vlbi
+echo "Contents of $RUNDIR/lofar-vlbi:"
 ls
 echo "+++++++++++++"
 echo "++lofarvlbi++"
