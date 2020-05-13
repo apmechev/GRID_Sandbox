@@ -103,7 +103,7 @@ fi
 #########
 #Starting processing
 #########
-
+echo "Current directory is $PWD"
 cd $PWD/prefactor
 echo "+++++++++++++"
 echo "++prefactor++"
@@ -113,8 +113,8 @@ git log --graph --decorate |head  -24
 echo "+++++++++++++"
 echo "+++++++++++++"
 
-cd $RUNDIR/lofar-vlbi
-echo "Contents of $RUNDIR/lofar-vlbi:"
+cd $JOBDIR/lofar-vlbi
+echo "Contents of $JOBDIR/lofar-vlbi:"
 ls
 echo "+++++++++++++"
 echo "++lofarvlbi++"
