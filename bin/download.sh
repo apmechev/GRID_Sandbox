@@ -117,7 +117,11 @@ function dl_targ2(){
    ls 
    for i in `ls *tar`; do tar -xf $i  && rm -rf $i; done
    find . -type d -name "*.pre-cal.ms" -exec mv {} ./ \;
+   mkdir -p ${RUNDIR}/prefactor/cal_values
+   find ${RUNDIR}/Input/ -name "*.h5" -exec mv {} ${RUNDIR}/prefactor/cal_values/ \; 
    echo "Input directory size:"
+   echo "Cal_results directory contains:"
+   ls ${RUNDIR}/prefactor/cal_values
    du -hs .
    du -hs scratch
    rm -rf scratch
