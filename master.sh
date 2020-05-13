@@ -113,9 +113,9 @@ git log --graph --decorate |head  -24
 echo "+++++++++++++"
 echo "+++++++++++++"
 
-cd -
-
-cd $PWD/lofar-vlbi
+cd $RUNDIR/lofar-vlbi
+echo "Contents of $RUNDIR/lofar-vlbi:"
+ls
 echo "+++++++++++++"
 echo "++lofarvlbi++"
 echo "+++version+++"
