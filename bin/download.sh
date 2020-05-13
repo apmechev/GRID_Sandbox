@@ -65,6 +65,11 @@ function dl_generic(){
    echo "Download Done!"
    echo "Contents of Input Directory:"
    ls ${RUNDIR}/Input
+   find ${RUNDIR}/Input/ -name "*.h5" -exec mv {} ${RUNDIR}/prefactor/cal_values/ \; 
+   cd ${RUNDIR}
+
+   echo "Cal_results directory contains:"
+   ls ${RUNDIR}/prefactor/cal_values
 }
 
 function dl_cal1(){
