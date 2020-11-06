@@ -13,6 +13,8 @@ echo ${PARSET}
 cat sing_pipeline.cfg
 export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
 cat ${RUNDIR}/${PARSET}
+echo "Calling ulimit from run_with_singularity() in GRID_Sandbox branch prefctor_3.0!!!!"
+ulimit -n 1024
 singularity exec ${SIMG} genericpipeline.py ${RUNDIR}/${PARSET} -d -c sing_pipeline.cfg  > output 2>&1
 }
 
