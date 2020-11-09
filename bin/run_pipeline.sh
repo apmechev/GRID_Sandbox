@@ -11,7 +11,7 @@ echo "Running prefactor in image ${SIMG}"
 singularity exec ${SIMG} which genericpipeline.py
 echo ${PARSET}
 cat sing_pipeline.cfg
-export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
+# export SINGULARITYENV_PYTHONPATH=$(echo "$PYTHONPATH" | sed -e 's/:\/cvmfs\/softdrive\.nl\/lofar_sw\/RMextract\/lib\/python2.7\/site-packages//')
 cat ${RUNDIR}/${PARSET}
 echo "Calling ulimit from run_with_singularity() in GRID_Sandbox branch prefctor_3.0!!!!"
 ulimit -n 1024
